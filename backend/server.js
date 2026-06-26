@@ -23,7 +23,7 @@ app.post('/api/evaluate-car', async (req, res) => {
 
     try {
         // This sends the data to your Python AI (microservice/app.py defaults to 5001)
-        const pythonUrl = process.env.PYTHON_SERVICE_URL || 'http://localhost:5001/predict-price';
+        const pythonUrl = process.env.PYTHON_SERVICE_URL || 'https://car-price-predictor-live-python.onrender.com';
         const pythonResponse = await axios.post(pythonUrl, carDetails, { timeout: 15000 });
         
         console.log("📤 AI Valuation received!");
