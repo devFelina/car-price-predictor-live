@@ -4,7 +4,7 @@ const axios = require('axios');
 
 const app = express();
 
-const allowedOrigins = (process.env.CORS_ORIGIN || 'http://localhost:3000')
+const allowedOrigins = (process.env.CORS_ORIGIN || 'https://car-price-predictor-live-frontend.onrender.com')
     .split(',')
     .map((s) => s.trim())
     .filter(Boolean);
