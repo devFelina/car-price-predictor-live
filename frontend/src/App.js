@@ -29,12 +29,14 @@ function App() {
     return `Rs. ${numericValue.toLocaleString()}`;
   };
 
-  const handlePredict = async (e) => {
+const handlePredict = async (e) => {
     e.preventDefault();
     setLoading(true);
     try {
-      // Use CRA dev proxy (see frontend/package.json) so we don't hardcode ports here.
-      const response = await axios.post('/api/evaluate-car', formData);
+      // 🔽 CHANGE THIS LINE FROM: const response = await axios.post('/api/evaluate-car', formData);
+      // 🔽 TO YOUR LIVE NODE BACKEND URL:
+      const response = await axios.post('https://car-price-predictor-live.onrender.com/api/evaluate-car', formData);
+      
       setValuation(response.data);
     } catch (err) {
       const backendMessage = err?.response?.data?.error;
